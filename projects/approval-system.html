@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zero-Cost Approval System — Kate Chen</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../index.html" class="site-title">Kate Chen</a>
+  <nav>
+    <ul class="site-nav">
+      <li>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sun-icon"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="moon-icon" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </li>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../archive.html">Writing</a></li>
+      <li><a href="../projects.html" class="active">Projects</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<article>
+
+<header class="article-header">
+  <h1>Replacing a SaaS Approval Tool with Power Automate — at Zero Cost</h1>
+  <p class="article-meta">IKEA China · Process Automation · 2026</p>
+  <div class="article-tags">
+    <span class="tag">Power Automate</span>
+    <span class="tag">SharePoint</span>
+    <span class="tag">Microsoft Forms</span>
+    <span class="tag">Process Automation</span>
+    <span class="tag">Workflow</span>
+  </div>
+</header>
+
+<div class="article-body">
+
+<h2>The Problem</h2>
+
+<p>When the company cancelled its SaaS approval tool for cost reasons, the Property team was left with no structured approval system. Teams fell back to email-based approvals — and the cracks showed immediately:</p>
+
+<ul>
+  <li><strong>Requests got lost.</strong> Approval emails mixed with daily inbox traffic. Important decisions sat unnoticed.</li>
+  <li><strong>No audit trail.</strong> Approval records scattered across personal mailboxes. A compliance review meant hours of inbox archaeology.</li>
+  <li><strong>No visibility.</strong> Requestors had no idea where their submission was stuck or who needed to act.</li>
+  <li><strong>Resubmission was painful.</strong> Rejected requests meant back-and-forth emails with no version control.</li>
+  <li><strong>No structured data.</strong> No way to generate reports, track cycle times, or measure team performance.</li>
+</ul>
+
+<p>The business need was clear. The budget for a replacement tool was zero. I built one.</p>
+
+<h2>The Solution</h2>
+
+<p>Using only existing Microsoft 365 licenses, I designed and built a multi-level approval system in two days. The architecture has three components:</p>
+
+<h3>1. Entry Point: Microsoft Forms</h3>
+<p>Anyone can submit a request through a standardized form. They enter the project, job type, description, amount, and upload supporting documents.</p>
+
+<h3>2. Workflow #1: Data Processing + ID Generation (Power Automate)</h3>
+<p>When a form is submitted, the first flow runs immediately:</p>
+<ul>
+  <li>Generates a unique request ID based on job type and project (e.g., <code>RFI-PV-011</code>)</li>
+  <li>Converts attached files into HTML links for SharePoint display and Markdown links for email notifications</li>
+  <li>Initializes metadata — status, timestamps, requestor identity</li>
+  <li>Writes everything to a SharePoint list (Request Log)</li>
+</ul>
+
+<h3>3. Workflow #2: Multi-Level Approval (Power Automate)</h3>
+<p>Creating a new Request Log entry triggers the approval flow:</p>
+<ul>
+  <li>Looks up the <strong>Approval Matrix</strong> — a configurable table that defines who approves what, based on job type and amount range</li>
+  <li>Runs through approval levels sequentially (L1 → L2 → L3), with "all must approve" at each level</li>
+  <li>Updates the Request Log in real time — requestors can see exactly who is currently reviewing</li>
+  <li>Sends a notification email for each terminal state: <strong>Approved</strong>, <strong>Rejected</strong>, or <strong>Flow Failed</strong></li>
+</ul>
+
+<h3>Behind the Scenes: Two Configuration Tables</h3>
+
+<p><strong>Approval Matrix</strong> — defines routing rules. Each row specifies: job type, amount range, and which roles must approve at each level. For example, an RFI under $10,000 goes to Manager → Director, while one over $50,000 goes to VP → CFO → CEO.</p>
+
+<p><strong>Approver Mapping</strong> — decouples roles from people. When a team member moves projects or leaves, an admin updates one row in this table. The approval flows keep running without any code changes.</p>
+
+<h2>Results</h2>
+
+<table class="results-table" style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
+  <tr style="border-bottom: 1px solid var(--color-border);">
+    <th style="text-align:left; padding:0.5rem 0.75rem; font-family:var(--font-sans); font-size:0.85rem; font-weight:600;">Metric</th>
+    <th style="text-align:left; padding:0.5rem 0.75rem; font-family:var(--font-sans); font-size:0.85rem; font-weight:600;">Before</th>
+    <th style="text-align:left; padding:0.5rem 0.75rem; font-family:var(--font-sans); font-size:0.85rem; font-weight:600;">After</th>
+  </tr>
+  <tr style="border-bottom: 1px solid var(--color-border);">
+    <td style="padding:0.5rem 0.75rem; font-size:0.875rem;">Average approval cycle</td>
+    <td style="padding:0.5rem 0.75rem; font-size:0.875rem;">5–7 days</td>
+    <td style="padding:0.5rem 0.75rem; font-size:0.875rem;">2–3 days</td>
+  </tr>
+  <tr style="border-bottom: 1px solid var(--color-border);">
+    <td style="padding:0.5rem 0.75rem; font-size:0.875rem;">Request omission rate</td>
+    <td style="padding:0.5rem 0.75rem; font-size:0.875rem;">~15% (estimated)</td>
+    <td style="padding:0.5rem 0.75rem; font-size:0.875rem;">0% (system-tracked)</td>
+  </tr>
+  <tr style="border-bottom: 1px solid var(--color-border);">
+    <td style="padding:0.5rem 0.75rem; font-size:0.875rem;">Archive search time</td>
+    <td style="padding:0.5rem 0.75rem; font-size:0.875rem;">30+ minutes</td>
+    <td style="padding:0.5rem 0.75rem; font-size:0.875rem;">&#60;1 minute</td>
+  </tr>
+  <tr>
+    <td style="padding:0.5rem 0.75rem; font-size:0.875rem;">New hire ramp-up</td>
+    <td style="padding:0.5rem 0.75rem; font-size:0.875rem;">Verbal walk-through required</td>
+    <td style="padding:0.5rem 0.75rem; font-size:0.875rem;">Self-guided with documented process</td>
+  </tr>
+</table>
+
+<p><strong>Additional highlights:</strong></p>
+<ul>
+  <li><strong>$0 development cost</strong> — built entirely on existing Microsoft 365 licenses</li>
+  <li><strong>2 days</strong> from requirements to working system</li>
+  <li><strong>Zero migration friction</strong> — team only needed to learn one Microsoft Form; everything else happened automatically</li>
+</ul>
+
+<h2>What This Demonstrates</h2>
+
+<ol>
+  <li><strong>System design thinking.</strong> The two-flow architecture separates concerns: data intake (Flow #1) is independent from routing logic (Flow #2). A change to either side doesn't break the other.</li>
+  <li><strong>Configuration over code.</strong> Approval rules live in SharePoint tables, not buried in Power Automate expressions. Non-technical administrators can update routing without touching a flow.</li>
+  <li><strong>User experience matters even in back-end tools.</strong> Email notifications with clear status, rejection reasons, and next steps reduced follow-up questions to zero.</li>
+  <li><strong>Constraints breed creativity.</strong> Zero budget meant no new tools to learn, no procurement process, no vendor calls. Just existing infrastructure used smarter.</li>
+</ol>
+
+</div>
+
+<a href="../projects.html" class="article-back">← Back to Projects</a>
+
+</article>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Kate Chen</p>
+</footer>
+
+<script>
+(function() {
+  const html = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const sun = toggle.querySelector('.sun-icon');
+  const moon = toggle.querySelector('.moon-icon');
+
+  function setTheme(dark) {
+    if (dark) {
+      html.setAttribute('data-theme', 'dark');
+      sun.style.display = 'none';
+      moon.style.display = 'block';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      html.removeAttribute('data-theme');
+      sun.style.display = 'block';
+      moon.style.display = 'none';
+      localStorage.setItem('theme', 'light');
+    }
+  }
+
+  if (localStorage.getItem('theme') === 'dark') {
+    setTheme(true);
+  }
+
+  toggle.addEventListener('click', function() {
+    setTheme(html.getAttribute('data-theme') !== 'dark');
+  });
+})();
+</script>
+
+</body>
+</html>

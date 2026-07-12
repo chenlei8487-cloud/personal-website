@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kate Chen</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="site-title">Kate Chen</a>
+  <nav>
+    <ul class="site-nav">
+      <li>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sun-icon"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="moon-icon" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="archive.html">Writing</a></li>
+      <li><a href="projects.html">Projects</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-top">
+      <img src="images/profile.png" alt="Portrait of Kate Chen" class="profile-photo">
+      <div class="hero-top-text">
+        <h1 class="hero-name">Kate Chen</h1>
+        <p class="hero-title">Civil engineer by training. AI engineer by obsession.</p>
+        <p class="hero-location">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="location-pin" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          Shanghai, China
+        </p>
+      </div>
+    </div>
+    <p class="hero-intro">
+      I build tools that help projects run smarter, and the people running them too. My toolkit used to be Excel and PowerPoint. Now it's AI agents, LLMs, and context engineering with feedback loops that let AI access real data and correct itself. Fifteen years in, the goal is still the same: make the complex simple, and the simple actionable. I write in English and Chinese about AI that actually works in the real world.
+    </p>
+    <div class="hero-links">
+      <a href="projects.html" class="hero-link" title="Projects" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/lei-kate-chen-a18a47a6/?skipRedirect=true" class="hero-link" title="LinkedIn" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      </a>
+      <a href="mailto:chenlei8487@gmail.com" class="hero-link" title="Email">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-header-left">
+        <h2>Work history</h2>
+        <p>A path through cost management, digital transformation, and project controls.</p>
+      </div>
+      <a href="https://www.linkedin.com/in/lei-kate-chen-a18a47a6/?skipRedirect=true" target="_blank" rel="noopener noreferrer" class="section-header-link">
+        LinkedIn
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M15 3h6v6"></path>
+          <path d="M10 14 21 3"></path>
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        </svg>
+      </a>
+    </div>
+
+    <ol class="timeline">
+
+      <li class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-item-header">
+          <div class="timeline-item-left">
+            <span class="timeline-role">Cost Management Leader</span>
+            <div class="timeline-company">IKEA</div>
+          </div>
+          <time class="timeline-date">Mar 2021 — Jun 2026</time>
+        </div>
+        <p class="timeline-desc">
+          Rated "Beyond Expectation" (top tier) in annual performance review. Led full-cycle cost management for IKEA retail/office projects across Shanghai, Beijing, Guangzhou, and Wuxi. Achieved ~10% cost savings on major renovations. Author of Property Dept Contract & Claims Management guideline. Drove digital transformation: rebuilt monthly reporting from manual Excel/PPT to Power BI dashboard with automated workflows (Power Automate, Power Query), scaled from 5 to 30+ PMs. Piloted AI Agent for automated report generation.
+ </p>
+ <p style="margin-top:0.75rem"><a href="projects/excel-to-powerbi.html" style="font-size:0.875rem; color:var(--color-primary); font-weight:500;">Read the case study →</a></p>
+      </li>
+
+      <li class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-item-header">
+          <div class="timeline-item-left">
+            <span class="timeline-role">Project Estimator</span>
+            <div class="timeline-company">Walt Disney Imagineering</div>
+          </div>
+          <time class="timeline-date">Aug 2012 — Apr 2019</time>
+        </div>
+        <p class="timeline-desc">
+          Cost-related activities for Shanghai Disney Resort, focusing on Treasure Cove, Back of House, and resort-wide AV and structure cabling systems. Developed budget estimations, analyzed bidder quotations, managed post-contract cost controls, and coordinated hard-cost cash flow forecasts with Finance.
+        </p>
+      </li>
+
+      <li class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-item-header">
+          <div class="timeline-item-left">
+            <span class="timeline-role">Cost Controller</span>
+            <div class="timeline-company">GuocoLand</div>
+          </div>
+          <time class="timeline-date">May 2011 — Aug 2012</time>
+        </div>
+        <p class="timeline-desc">
+          Managed cost control for a commercial complex encompassing office buildings, a five-star hotel, service apartments, and a shopping center. Verified contractors' payment applications, consolidated multi-discipline budgets, and evaluated claims and variations from external firms.
+        </p>
+      </li>
+
+      <li class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-item-header">
+          <div class="timeline-item-left">
+            <span class="timeline-role">Quantity Surveyor</span>
+            <div class="timeline-company">Arcadis – Langdon & Seah</div>
+          </div>
+          <time class="timeline-date">Sep 2007 — May 2011</time>
+        </div>
+        <p class="timeline-desc">
+          Focused on fit-out and civil works for commercial projects including Shanghai World Financial Centre, Cross Ocean Office & The Puli Hotel, and Capitaland Zhabei Project. Provided cost estimating, tender documentation, and full financial administration of construction contracts.
+        </p>
+      </li>
+
+    </ol>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-header-left">
+        <h2>Education</h2>
+        <p>Academic foundation in engineering and business.</p>
+      </div>
+    </div>
+
+    <ol class="timeline">
+      <li class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-item-header">
+          <div class="timeline-item-left">
+            <span class="timeline-role">Master of Business Administration (MBA)</span>
+            <div class="timeline-company">Fudan University</div>
+          </div>
+          <time class="timeline-date">2022 — 2025</time>
+        </div>
+        <p class="timeline-desc">
+          iLab project: developed a carbon reduction roadmap for a client company to align with science-based carbon commitments. Completed HKUST online ESG course, a global joint program for business school alliance members worldwide.
+        </p>
+      </li>
+
+      <li class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-item-header">
+          <div class="timeline-item-left">
+            <span class="timeline-role">Bachelor of Engineering, Civil Engineering</span>
+            <div class="timeline-company">Shanghai Normal University</div>
+          </div>
+          <time class="timeline-date">2003 — 2007</time>
+        </div>
+        <p class="timeline-desc">
+          Shanghai Municipal Excellent Graduate (top 5%). Minored in English and earned TEM-8 certification. Multiple awards and scholarships.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Writing</h2>
+    <div class="writing-stats">
+      <div>Articles <span>3</span></div>
+      <div>Years <span>2024–26</span></div>
+    </div>
+
+    <div class="writing-preview">
+      <h3><a href="writing/article-1.html">示例文章标题一</a></h3>
+      <div class="writing-meta">Mar 15, 2026 · 中文 · 5 min read</div>
+      <p class="writing-excerpt">这是文章的简短摘要，介绍文章的主要内容，吸引读者点击阅读全文。一两句话即可。</p>
+    </div>
+
+    <div class="writing-preview">
+      <h3><a href="writing/article-2.html">示例文章标题二</a></h3>
+      <div class="writing-meta">Feb 20, 2026 · English · 8 min read</div>
+      <p class="writing-excerpt">A brief excerpt of the article that gives readers a preview of what to expect.</p>
+    </div>
+
+    <div class="writing-preview">
+      <h3><a href="writing/article-3.html">示例文章标题三</a></h3>
+      <div class="writing-meta">Jan 10, 2026 · 中文 · 3 min read</div>
+      <p class="writing-excerpt">文章的简短摘要，概括文章的核心观点或讨论的话题。</p>
+    </div>
+
+    <a href="archive.html" class="view-all">查看全部文章 →</a>
+  </section>
+
+  <section>
+    <h2>What I'm Thinking About</h2>
+    <div class="tags">
+      <span class="tag">Cost Management</span>
+      <span class="tag">Digital Transformation</span>
+      <span class="tag">Project Controls</span>
+      <span class="tag">AI Agent & Automation</span>
+      <span class="tag">Power BI / Power Automate</span>
+      <span class="tag">Commercial Real Estate</span>
+      <span class="tag">Claims & Contracts</span>
+      <span class="tag">ESG & Carbon Reduction</span>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Kate Chen</p>
+</footer>
+
+<script>
+(function() {
+  const html = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const sun = toggle.querySelector('.sun-icon');
+  const moon = toggle.querySelector('.moon-icon');
+
+  function setTheme(dark) {
+    if (dark) {
+      html.setAttribute('data-theme', 'dark');
+      sun.style.display = 'none';
+      moon.style.display = 'block';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      html.removeAttribute('data-theme');
+      sun.style.display = 'block';
+      moon.style.display = 'none';
+      localStorage.setItem('theme', 'light');
+    }
+  }
+
+  // Restore saved preference
+  if (localStorage.getItem('theme') === 'dark') {
+    setTheme(true);
+  }
+
+  toggle.addEventListener('click', function() {
+    setTheme(html.getAttribute('data-theme') !== 'dark');
+  });
+})();
+</script>
+
+</body>
+</html>

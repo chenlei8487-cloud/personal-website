@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing — 你的名字</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="site-title">你的名字</a>
+  <nav>
+    <ul class="site-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="archive.html" class="active">Writing</a></li>
+      <li><a href="projects.html">Projects</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Writing</h1>
+  <p style="color: var(--color-text-secondary); margin-bottom: 1.5rem;">
+    文章、笔记、反思和实验记录。
+  </p>
+
+  <div class="filters">
+    <div class="filter-group">
+      <span class="filter-label">语言:</span>
+      <button class="filter-btn active" data-filter="lang" data-value="all">All</button>
+      <button class="filter-btn" data-filter="lang" data-value="zh">中文</button>
+      <button class="filter-btn" data-filter="lang" data-value="en">English</button>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-label">年份:</span>
+      <button class="filter-btn active" data-filter="year" data-value="all">All</button>
+      <button class="filter-btn" data-filter="year" data-value="2026">2026</button>
+      <button class="filter-btn" data-filter="year" data-value="2025">2025</button>
+      <button class="filter-btn" data-filter="year" data-value="2024">2024</button>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-label">主题:</span>
+      <button class="filter-btn active" data-filter="topic" data-value="all">All</button>
+      <button class="filter-btn" data-filter="topic" data-value="AI">AI 工程</button>
+      <button class="filter-btn" data-filter="topic" data-value="frontend">前端开发</button>
+      <button class="filter-btn" data-filter="topic" data-value="career">职业与学习</button>
+      <button class="filter-btn" data-filter="topic" data-value="reflection">个人反思</button>
+    </div>
+  </div>
+
+  <div class="writing-stats">
+    <div>共 <span id="article-count">3</span> 篇</div>
+  </div>
+
+  <ul class="archive-list" id="article-list">
+    <li class="archive-item" data-lang="zh" data-year="2026" data-topic="AI">
+      <h3><a href="writing/article-1.html">示例文章标题一</a></h3>
+      <div class="archive-meta">Mar 15, 2026 · 中文 · 5 min read</div>
+      <div class="archive-item-tags">
+        <span class="archive-item-tag">AI 工程</span>
+        <span class="archive-item-tag">系统设计</span>
+      </div>
+    </li>
+
+    <li class="archive-item" data-lang="en" data-year="2026" data-topic="frontend">
+      <h3><a href="writing/article-2.html">示例文章标题二</a></h3>
+      <div class="archive-meta">Feb 20, 2026 · English · 8 min read</div>
+      <div class="archive-item-tags">
+        <span class="archive-item-tag">前端开发</span>
+        <span class="archive-item-tag">开源</span>
+      </div>
+    </li>
+
+    <li class="archive-item" data-lang="zh" data-year="2025" data-topic="career">
+      <h3><a href="writing/article-3.html">示例文章标题三</a></h3>
+      <div class="archive-meta">Jan 10, 2025 · 中文 · 3 min read</div>
+      <div class="archive-item-tags">
+        <span class="archive-item-tag">职业与学习</span>
+        <span class="archive-item-tag">个人反思</span>
+      </div>
+    </li>
+  </ul>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 你的名字</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
